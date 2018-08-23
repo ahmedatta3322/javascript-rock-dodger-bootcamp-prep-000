@@ -131,11 +131,13 @@ function moveDodgerLeft() {
 }
 
 function moveDodgerRight() {
-  var rights = positionToInteger(DODGER.style.right)
-  DODGER.style.left = `${rights + 4}px`
-  if(rights < 360) {
-    moveDodgerRight()
-  }
+  window.requestAnimationFrame(function() {
+    const left = positionToInteger(DODGER.style.left)
+
+    if (left < 360) {
+      DODGER.style.left = `${left + 4}px`;
+    }
+  })
 }
 
 /**
