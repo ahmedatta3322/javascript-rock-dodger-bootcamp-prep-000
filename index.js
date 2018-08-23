@@ -121,11 +121,13 @@ function moveDodger(e) {
 }
 
 function moveDodgerLeft() {
-  var lefts = (DODGER.style.left) 
-  DODGER.style.left = `${lefts - 4}px`
-  if(lefts > 0) {
-    moveDodgerLeft()
-  }
+  window.requestAnimationFrame(function() {
+    const left = positionToInteger(DODGER.style.left)
+
+    if (left > 0) {
+      DODGER.style.left = `${left - 4}px`;
+    }
+  })
 }
 
 function moveDodgerRight() {
